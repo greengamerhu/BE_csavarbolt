@@ -6,12 +6,10 @@ export class Rendeles {
     @PrimaryGeneratedColumn()
     id : number;
     
-    @Column('int')
-    csavar_id : number
+    @ManyToOne(() => Csavar, (csavar) => csavar.id)
+    csavar_id : Csavar
 
     @Column('int')
     db : number
 
-    @ManyToOne(() => Csavar, (csavar) => csavar.id)
-    csavar: Csavar
 }
