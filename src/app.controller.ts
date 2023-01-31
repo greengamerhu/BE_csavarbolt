@@ -11,9 +11,9 @@ export class AppController {
   ) {}
 
   @Get('/csavar')
-  getCsavarok() {
+  async getCsavarok() {
     const repo = this.dataSource.getRepository(Csavar)
-    const rows = repo.find()
+    const rows = await repo.find()
     return {csavarok : rows}
   }
   @Post('/csavar') 
@@ -28,7 +28,7 @@ export class AppController {
       error = "A csavar hosszának megadása kötelező"
       return error
     }
-    if(isNaN(csavar.keszlet)) {
+    if(isNaN(csavar.keszlet) || csavar.keszlet < 0) {
       error = "A csavar készlet megadása kötelező"
       return error
     }

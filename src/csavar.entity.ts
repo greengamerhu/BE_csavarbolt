@@ -15,7 +15,7 @@ export class Csavar {
     @Column()
     keszlet : number
 
-    @Column({type : 'decimal', scale: 2})
+    @Column({type : 'decimal', precision: 30, scale: 2,})
     ar : number
 
   @OneToMany(() => Rendeles, (rendeles) => rendeles.csavar_id)
