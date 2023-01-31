@@ -12,7 +12,7 @@ export class Csavar {
     @Column('int')
     hossz : number
 
-    @Column('int')
+    @Column()
     keszlet : number
 
     @Column({type : 'decimal', scale: 2})
